@@ -1,7 +1,8 @@
 import s from "./Profile.module.css";
-import { ProfileValue } from "../../types/types";
+import {IProfileProps} from '../../types/types'
 
-const Profile: React.FC<ProfileValue> = ({
+
+const Profile: React.FC<IProfileProps> = ({
   username,
   tag,
   location,
@@ -12,7 +13,7 @@ const Profile: React.FC<ProfileValue> = ({
     <div className={s.profile}>
       <div className={s.description}>
         <img src={avatar} alt={username} className="avatar" width="200" />
-        <p className="name">{username} "Hell"</p>
+        <p className="name">{username}</p>
         <p className="tag">@{tag}</p>
         <p className="location">{location}</p>
       </div>

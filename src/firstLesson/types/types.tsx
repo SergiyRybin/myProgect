@@ -1,18 +1,16 @@
-type ProfileValue = {
+
+type IProfileProps ={
   username: string;
   tag: string;
   location: string;
   avatar: string;
-  stats: any
-  // stats: {
-  //   followers: string;
-  //   views: string;
-  //   likes: string;
-  // };
-};
+  stats: {
+    followers: number;
+    views: number;
+    likes: number;
+  };
+}
 
-
-type Items = { id: string; label: string; percentage: number };
 type FriendListItems = {
   id: number,
   isOnline: boolean,
@@ -20,4 +18,25 @@ type FriendListItems = {
   name: string
 };
 
-export type { ProfileValue, Items, FriendListItems };
+interface Items {
+  id: string;
+  label: string;
+  percentage: number;
+}
+
+interface IStatisticsType {
+  stats: Items[];
+}
+
+interface TransactionHistoryTypes {
+  amount: string;
+  currency: string;
+  id: string;
+  type: string;
+}
+
+interface Iprops  {
+  items: TransactionHistoryTypes[];
+}
+
+export type { FriendListItems, IProfileProps, IStatisticsType, Iprops };

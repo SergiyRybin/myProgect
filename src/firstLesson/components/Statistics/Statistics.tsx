@@ -1,16 +1,13 @@
 import s from "./Statistics.module.css";
-import { Items } from "../../types/types";
+import {IStatisticsType} from '../../types/types'
 
-interface StatisticsType {
-  stats: [];
-}
 
-const Statistics: React.FC<StatisticsType> = ({ stats }) => {
+const Statistics: React.FC<IStatisticsType> = ({ stats }) => {
   return (
     <section className={s.statistics}>
       <h2 className={s.title}>Upload stats</h2>
       <ul className={s.statList}>
-        {stats?.map((items: Items) => (
+        {stats.map((items) => (
           <li key={items.id} className={s.item}>
             <span className={s.label}> {items.label} </span>
             <span className={s.percentage}> {items.percentage}</span>

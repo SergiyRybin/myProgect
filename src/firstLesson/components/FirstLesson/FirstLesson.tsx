@@ -6,10 +6,14 @@ import Friendlist from "../FriendList/FriendList";
 import friends from "../../data/friends.json";
 import TransactionHistory from "../Transaction/TransactionHistory";
 import transactions from "../../data/transactions.json";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function FirstLesson() {
+const FirstLesson: React.FC = () => {
+  const nav = useNavigate();
   return (
     <div className="container">
+      <button onClick={() => nav("/")}>Go Back</button>
       <Profile
         username={user.username}
         tag={user.tag}
@@ -18,11 +22,11 @@ export default function FirstLesson() {
         stats={user.stats}
       />
 
-      {/* <Statistics stats={data} /> */}
+      <Statistics stats={data} />
       <Friendlist friends={friends} />
       <TransactionHistory items={transactions} />
     </div>
-
-    //
   );
-}
+};
+
+export default FirstLesson;
