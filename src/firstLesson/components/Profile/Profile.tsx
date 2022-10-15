@@ -1,0 +1,37 @@
+import s from "./Profile.module.css";
+import { ProfileValue } from "../../types/types";
+
+const Profile: React.FC<ProfileValue> = ({
+  username,
+  tag,
+  location,
+  avatar,
+  stats,
+}) => {
+  return (
+    <div className={s.profile}>
+      <div className={s.description}>
+        <img src={avatar} alt={username} className="avatar" width="200" />
+        <p className="name">{username} "Hell"</p>
+        <p className="tag">@{tag}</p>
+        <p className="location">{location}</p>
+      </div>
+
+      <ul className={s.stats}>
+        <li>
+          <span className={s.label}>Followers</span>
+          <span className="quantity"> {stats.followers}</span>
+        </li>
+        <li>
+          <span className={s.label}>Views</span>
+          <span className="quantity"> {stats.views}</span>
+        </li>
+        <li>
+          <span className={s.label}>Likes</span>
+          <span className="quantity"> {stats.likes}</span>
+        </li>
+      </ul>
+    </div>
+  );
+};
+export default Profile;
