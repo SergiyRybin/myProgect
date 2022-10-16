@@ -6,10 +6,10 @@ const StartPage = () => {
   return (
     <>
       <div>FirstPage</div>
-      <button className={s.Back} onClick={() => nav("/firstLesson")}>Lesson 1</button>
-      <button className={s.Back} onClick={() => nav("/secondLesson")}>Lesson 2</button>
+      <button className={s.Back} onClick={() => nav("/1")}>Lesson 1</button>
+      <button className={s.Back} onClick={() => nav("/2")}>Lesson 2</button>
       <button className={s.Back} onClick={() => nav("/3")}>Lesson 3</button>
-
+      <button className={s.Back} onClick={() => nav("/5")}>Lesson 5</button>
     </>
   );
 };

@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
-import s from '../SearchForm/SearchForm.module.css';
+import React, { Component } from "react";
+import s from "../SearchForm/SearchForm.module.css";
 
-class SearchForm extends Component {
+interface Iclas {
+  onSubmit: (image: string) => void;
+}
+
+class SearchForm extends Component<Iclas> {
   state = {
-    image: '',
+    image: "",
   };
 
-  formSubmit = e => {
+  formSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     this.props.onSubmit(this.state.image);
-    this.setState({ image: '' });
+    this.setState({ image: "" });
   };
 
-  fromCahnge = e => {
-    const nameValue = e.currentTarget.value.toLowerCase().trim();
+  fromCahnge = (e: React.FormEvent) => {
+    const nameValue = (e.currentTarget as HTMLInputElement).value
+      .toLowerCase()
+      .trim();
     this.setState({ image: nameValue });
   };
 

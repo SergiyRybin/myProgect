@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import FirstLesson from "./FirstLesson/components/FirstLesson/FirstLesson";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Lesson5 from "../src/Lesson5/components/App/Lesson5";
 import "./index.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FirstLesson from "./Lesson1/components/FirstLesson/FirstLesson";
+import SecondLesson from "./Lesson2/App/SecondLesson";
+import Lesson3 from "./Lesson3/components/App/Lesson3";
 import StartPage from "./StartPage/StartPage";
-import SecondLesson from "./SecondLesson/App/SecondLesson";
-import Lesson3 from "./ThirdLesson/components/App/Lesson3";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -15,10 +17,10 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/firstLesson" element={<FirstLesson />} />
-        <Route path="/secondLesson" element={<SecondLesson />} />
-        <Route path="/3" element={<Lesson3/>} />
-
+        <Route path="/1" element={<FirstLesson />} />
+        <Route path="/2" element={<SecondLesson />} />
+        <Route path="/3" element={<Lesson3 />} />
+        <Route path="/5/*" element={<Lesson5 />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

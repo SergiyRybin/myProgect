@@ -1,24 +1,37 @@
-import  { Component } from 'react';
-import fetchDataImage from '../../servises/fetchRequaest';
-import ImageGallery from '../ImageGallery/ImageGallery';
-import SearchForm from '../SearchForm/SearchForm';
-import Button from '../Button/Button';
-import Modal from '../Modal/Modal';
-import Loader from '../Loader/Loader';
+import { Component } from "react";
+import fetchDataImage from "../../servises/fetchRequaest";
+import ImageGallery from "../ImageGallery/ImageGallery";
+import SearchForm from "../SearchForm/SearchForm";
+import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
+import Loader from "../Loader/Loader";
+import { Link } from "react-router-dom";
+import s from './Searchbar.module.css'
+
+interface IPrevState {
+  images: [];
+  page: number;
+  query?: string;
+  showModal?: boolean;
+  modalImage?: undefined | string;
+  loader?: boolean;
+  total?: number;
+  errorMesege?: boolean;
+}
 
 class Searchbar extends Component {
-  state = {
+  state: IPrevState = {
     images: [],
     page: 1,
-    query: '',
+    query: "",
     showModal: false,
-    modalImage: '',
+    modalImage: "",
     loader: false,
     total: 0,
     errorMesege: false,
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: any, prevState: IPrevState) {
     if (prevState.query !== this.state.query) {
       this.fetchImages();
     }
@@ -29,19 +42,19 @@ class Searchbar extends Component {
     this.setState({ loader: true });
 
     fetchDataImage(query, page)
-      .then(images => {
-        this.setState(prevState => ({
+      .then((images) => {
+        this.setState((prevState: IPrevState) => ({
           images: [...prevState.images, ...images.hits],
           page: prevState.page + 1,
           loader: false,
           total: images.total,
-          errorMesege: false
+          errorMesege: false,
         }));
       })
       .catch(() => this.setState({ errorMesege: true, loader: false }));
   };
 
-  fromData = data => {
+  fromData = (data: string | any[]) => {
     if (data.length === 0) {
       return;
     }
@@ -53,7 +66,7 @@ class Searchbar extends Component {
     });
   };
 
-  openModal = largeImageURL => {
+  openModal = (largeImageURL: string) => {
     this.setState({
       showModal: true,
       modalImage: largeImageURL,
@@ -63,14 +76,18 @@ class Searchbar extends Component {
   toggleModal = () => {
     this.setState({
       showModal: false,
-      modalImage: '',
+      modalImage: "",
     });
   };
 
   render() {
-    const { images, showModal, modalImage, loader, total, errorMesege } = this.state;
+    const { images, showModal, modalImage, loader, total, errorMesege } =
+      this.state;
     return (
       <>
+        <Link to="/" className={s.Lin}>
+          Go Back
+        </Link>
         <SearchForm onSubmit={this.fromData} />
         <ImageGallery images={images} modalOpen={this.openModal} />
         {loader && <Loader />}
@@ -79,9 +96,9 @@ class Searchbar extends Component {
             <img src={modalImage} alt="" />
           </Modal>
         )}
-        {images.length > 0 && images.length < total && !errorMesege &&
+        {images.length > 0 && images.length < total! && !errorMesege && (
           <Button onClick={this.fetchImages} text="Load more" />
-        }
+        )}
       </>
     );
   }

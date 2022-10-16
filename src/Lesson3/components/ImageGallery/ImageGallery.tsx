@@ -11,7 +11,7 @@ interface IImages {
 
 interface IGallary {
   images: IImages[];
-  modalOpen(): void;
+  modalOpen: (largeImageURL: any)=> void;
 }
 
 const ImageGallery: React.FC<IGallary> = ({ images, modalOpen }) => {

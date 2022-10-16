@@ -18,6 +18,23 @@ code {
   box-sizing: border-box;
 }
 
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 ul{
   list-style: none;
   padding: 0;
@@ -32,4 +49,26 @@ button{
 }
 .container{
   padding: 15px;
+}
+
+.link {
+  padding-right: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.link.active {
+  color: aqua;
+}
+
+.linkDetail{
+  text-decoration: none;
+  color: #3f3f3f;
+}
+
+
+.linkDetail.activeDetails{
+  color: green;
+  font-weight: bold;
+  font-size: larger;
 }

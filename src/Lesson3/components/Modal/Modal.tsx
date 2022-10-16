@@ -1,15 +1,14 @@
-import { Component } from "react";
-import { createPortal } from "react-dom";
+import { Component, ReactNode } from "react";
+import ReactDOM from "react-dom";
 import s from "../Modal/Modal.module.css";
 
 const modalRoot = document.querySelector("#modal");
 
 interface IClass {
-  children: string;
-  escClose(): void;
-  onClose(): void
+  children: ReactNode;
+  escClose?: () => any;
+  onClose: () => void;
 }
-
 
 class Modal extends Component<IClass> {
   componentDidMount() {
@@ -26,17 +25,15 @@ class Modal extends Component<IClass> {
     }
   };
 
-  bacdropClose = (e: Event) => {
+  bacdropClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     if (e.currentTarget === e.target) {
       this.props.onClose();
     }
   };
 
   render() {
-    return createPortal(
-      <div className={s.Overlay} 
-      // onClick={this.bacdropClose}
-      >
+    return ReactDOM.createPortal(
+      <div className={s.Overlay} onClick={this.bacdropClose}>
         <div className={s.Modal}>{this.props.children}</div>
       </div>,
       modalRoot as HTMLDivElement
