@@ -4,7 +4,7 @@ const Navigatinon = () => {
   return (
     <nav>
       <NavLink
-        to="/5/"
+        to="/5"
         className={({isActive}) => (isActive ? 'link active' : 'link')}
       >
         Home

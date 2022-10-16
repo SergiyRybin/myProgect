@@ -50,7 +50,7 @@ const FilmDetails = () => {
 
   return (
     <Container>
-      <NavLink to={!query ? '/' : `/movies${query}`}>
+      <NavLink to={!query ? '/5' : `/5/movies${query}`}>
         <button style={{ marginBottom: 10 }}>Go back</button>
       </NavLink>
       <div style={{ display: 'flex' }} key={filmDetail.id}>

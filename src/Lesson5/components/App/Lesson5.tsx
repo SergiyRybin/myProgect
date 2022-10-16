@@ -20,7 +20,7 @@ const Lesson5 = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Container>
-          <NavBar />
+          <NavBar children={undefined}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
@@ -31,7 +31,7 @@ const Lesson5 = () => {
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
-            <Route path="5/*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/5" />} />
           </Routes>
         </Container>
         <ToastContainer />

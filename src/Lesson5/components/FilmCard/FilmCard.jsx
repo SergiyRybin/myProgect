@@ -1,11 +1,12 @@
-import s from '../FilmCard/FilmCard.module.css';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import iconNmae from '../../images/2.jpeg';
+// import s from "../FilmCard/FilmCard.module.css";
+import s from '../FilmCard/FilmCard.module.css'
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import iconNmae from "../../images/2.jpeg";
 
 const FilmCard = ({ film, state }) => {
   return (
-    <Link to={`/5/movies/${film.id}`} state={state}>
+    <Link to={`/5/movies/${film.id}`} state={state} className={s.ListItem}>
       <img
         src={
           film.poster_path
