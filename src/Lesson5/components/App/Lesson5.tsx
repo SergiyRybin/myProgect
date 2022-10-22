@@ -4,7 +4,8 @@ import NavBar from "../NavigationBar/NavBar";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import { ToastContainer } from "react-toastify";
-import { lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react";
+import ButtonBack from "../../../StartPage/ButtonBack";
 
 const Home = lazy(() => import("../../pages/Home"));
 const MovieSearch = lazy(() => import("../../pages/MovieSearch/MovieSearch"));
@@ -20,7 +21,8 @@ const Lesson5 = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Container>
-          <NavBar children={undefined}/>
+          <ButtonBack/>
+          <NavBar/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

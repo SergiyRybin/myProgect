@@ -4,8 +4,8 @@ import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
 import Section from "../SectionChildren/SectionChildren";
 import Notification from "../Notification/Notification";
 import React from "react";
-import { Link } from "react-router-dom";
-import s from './Feedback.module.css'
+import ButtonBack from "../../StartPage/ButtonBack";
+
 type MyState = {
   good: number;
   neutral: number;
@@ -20,12 +20,13 @@ class Feedback extends Component {
   };
 
   addFeedback = (event: React.MouseEvent<HTMLButtonElement>) => {
+    
     const targetName = (event.target as HTMLButtonElement).dataset.name;
 
     this.setState((prev: MyState) => {
-      if (targetName === "Good") return prev.good +=1;
-      if (targetName === "Neutral") return prev.neutral += 1;
-      if (targetName === "Bad") return prev.bad += 1;
+      if (targetName === "Good") return (prev.good += 1);
+      if (targetName === "Neutral") return (prev.neutral += 1);
+      if (targetName === "Bad") return (prev.bad += 1);
     });
   };
 
@@ -47,26 +48,34 @@ class Feedback extends Component {
     const totalPersent = this.countPositiveFeedbackPercentage();
     return (
       <>
-      <Link to='/' className={s.Lin}>Go Back</Link>
-      <div className="container">
-        <Section title="Please leave feedback">
-          <FeedbackOptions onLeaveFeedback={this.addFeedback} />
-        </Section>
-        <Section title="Statistics">
-          {total === 0 ? (
-            <Notification messege="There is no feedback" />
-          ) : (
-            <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={total}
-              positivePercentage={totalPersent} />
-          )}
-        </Section>
-      </div></>
+        {/* <ButtonBack/> */}
+        <div className="container">
+          <Section title="Please leave feedback">
+            <FeedbackOptions onLeaveFeedback={this.addFeedback} />
+          </Section>
+          <Section title="Statistics">
+            {total === 0 ? (
+              <Notification messege="There is no feedback" />
+            ) : (
+              <Statistics
+                good={this.state.good}
+                neutral={this.state.neutral}
+                bad={this.state.bad}
+                total={total}
+                positivePercentage={totalPersent}
+              />
+            )}
+          </Section>
+        </div>
+      </>
     );
   }
 }
 
 export default Feedback;
+
+// function sta<T extends object, U extends keyof T>(prev: T, targetName: U) {
+//   return { [targetName]: prev[targetName] };
+// }
+
+// console.log( sta({ good: 0 }, "good"))

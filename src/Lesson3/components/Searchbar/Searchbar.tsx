@@ -5,8 +5,6 @@ import SearchForm from "../SearchForm/SearchForm";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import Loader from "../Loader/Loader";
-import { Link } from "react-router-dom";
-import s from './Searchbar.module.css'
 
 interface IPrevState {
   images: [];
@@ -85,9 +83,6 @@ class Searchbar extends Component {
       this.state;
     return (
       <>
-        <Link to="/" className={s.Lin}>
-          Go Back
-        </Link>
         <SearchForm onSubmit={this.fromData} />
         <ImageGallery images={images} modalOpen={this.openModal} />
         {loader && <Loader />}

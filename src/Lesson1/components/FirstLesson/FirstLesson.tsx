@@ -7,13 +7,15 @@ import friends from "../../data/friends.json";
 import TransactionHistory from "../Transaction/TransactionHistory";
 import transactions from "../../data/transactions.json";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import ButtonBack from '../../../StartPage/ButtonBack'
+
+
 
 const FirstLesson: React.FC = () => {
-  const nav = useNavigate();
+
   return (
     <div className="container">
-      <button onClick={() => nav("/")}>Go Back</button>
+      <ButtonBack/>
       <Profile
         username={user.username}
         tag={user.tag}

@@ -1,5 +1,5 @@
 // import s from "../FilmCard/FilmCard.module.css";
-import s from '../FilmCard/FilmCard.module.css'
+import s from "../FilmCard/FilmCard.module.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import iconNmae from "../../images/2.jpeg";

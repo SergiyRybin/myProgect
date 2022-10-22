@@ -3,7 +3,7 @@ import style from "../NavigationBar/NavBar.module.css";
 import { ReactElement } from "react";
 
 interface InavBar {
-  children: ReactElement;
+  children?: ReactElement;
 }
 
 function NavBar({ children }: InavBar): ReactElement {

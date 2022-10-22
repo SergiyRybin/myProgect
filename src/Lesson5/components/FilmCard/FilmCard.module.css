@@ -1,10 +1,12 @@
 
 .ImageItem {
+  width: 100%;
   object-fit: cover;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ListItem {
+  width: 320px;
   text-decoration: none;
   color: black;
   border-radius: 2px;
