@@ -4,7 +4,7 @@ import { fetchTrendFilm } from '../servises/fetchRequaest';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
-  const [films, setFilm] = useState([]);
+  const [films, setFilm] = useState<any>([]);
 
   useEffect(() => {
     if (films.length === 0) {
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <Container>
       <h1>Trending today</h1>
-      <FilmList data={data} />
+      <FilmList data={data} state={''} />
     </Container>
   );
 };

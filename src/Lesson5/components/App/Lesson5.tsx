@@ -27,10 +27,10 @@ const Lesson5 = () => {
             <Route path="/" element={<Home />} />
             <Route
               path="/movies"
-              element={location.search ? <MovieSearch /> : <MoviesBar />}
+              element={location.search ? <MovieSearch /> : <MoviesBar/>}
             />
             <Route path="/movies/:id" element={<FilmDetails />}>
-              <Route path="cast" element={<Cast />} />
+              <Route path="cast" element={<Cast length={0} cast={undefined} />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
             <Route path="*" element={<Navigate to="/5" />} />

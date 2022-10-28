@@ -1,13 +1,15 @@
+import React from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const MoviesBar = () => {
+
+const MoviesBar: React.FC = () => {
   const [, setSearchFilm] = useSearchParams();
 
-  const fromCahnge = e => {
+  const fromCahnge = (e: React.FormEvent) => {
     e.preventDefault();
-    const nameValue = e.currentTarget.elements.query.value.toLowerCase().trim();
+    const nameValue = (e.currentTarget as any).elements.query.value.toLowerCase().trim();
     if (nameValue === '') {
       return toast('Введіть назву фільма');
     }

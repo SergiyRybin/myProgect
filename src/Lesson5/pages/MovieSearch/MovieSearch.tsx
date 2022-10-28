@@ -7,11 +7,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
 
-const MovieSearch = () => {
+
+
+const MovieSearch: React.FC = () => {
   const location = useLocation();
 
   const query = location.search.slice(7, location.search.length);
-  const [filmsSearch, setFilmSearch] = useState([]);
+  const [filmsSearch, setFilmSearch] = useState<any>([]);
 
   useEffect(() => {
     if (query) {

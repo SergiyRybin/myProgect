@@ -1,12 +1,11 @@
 import Navigatinon from "../NavigationLink/NavLink";
 import style from "../NavigationBar/NavBar.module.css";
-import { ReactElement } from "react";
 
 interface InavBar {
-  children?: ReactElement;
+  children?: JSX.Element;
 }
 
-function NavBar({ children }: InavBar): ReactElement {
+function NavBar({ children }: InavBar): JSX.Element {
   return (
     <header className={style.NavBar}>
       {children}
