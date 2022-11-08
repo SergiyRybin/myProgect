@@ -7,11 +7,16 @@ const emitter = new events.EventEmitter();
 const app = express();
 
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
-app.get("/get", (req, res, next) => {
-  emitter.once("newMessage", (mess) => {
-    res.json(mess);
+app.get("/connect", (req, res) => {
+  res.writeHead(200, {
+    Connection: "keep-alive",
+    "Content-Type": "text/event-stream",
+    "Cash-Control": "no-cash",
+  });
+  emitter.on("newMessage", (message)=>{
+    res.write(`data: ${JSON.stringify(message)} \n\n`)
   });
 });
 

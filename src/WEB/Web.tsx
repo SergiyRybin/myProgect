@@ -6,31 +6,39 @@ const Web = () => {
   const [mess, setMess] = useState<any>([]);
   const [value, setValue] = useState("");
 
-  const sendMess = async () => {
-    const date = new Date()
-    await axios.post("http://localhost:5000/new", {
-      messege: value,
-      id: date.toISOString()
-    });
-  };
-
   useEffect(() => {
     subscribe();
-  }, [])
+  }, []);
 
+  // Long poling
+  // const subscribe = async () => {
+  //   try {
+  //     const { data } = await axios.get("http://localhost:5000/connect");
+  //     setMess((prev: []) => [data, ...prev]);
+  //     await subscribe();
+  //   } catch (error) {
+  //     setTimeout(() => {
+  //       subscribe();
+  //     }, 500);
+  //   }
+  // };
+
+  //event soueser
   const subscribe = async () => {
-    try {
-      const { data } = await axios.get("http://localhost:5000/get");
-      setMess((prev: any) => [data, ...prev]);
-      await subscribe();
-    } catch (error) {
-      setTimeout(() => {
-        subscribe();
-      }, 500);
+    const eventSource = new EventSource('http://localhost:5000/connect')
+    eventSource.onmessage = function(event){
+     const message = JSON.parse(event.data)
+      setMess((prev: []) => [message, ...prev])
     }
-  };
+  }
 
-  return (
+  const sendMess = async () => {
+    await axios.post("http://localhost:5000/new", {
+      messege: value,
+      id: Date.now(),
+    });
+  };
+return (
     <>
       <div>
         <ButtonBack />
@@ -42,8 +50,8 @@ const Web = () => {
         <button onClick={sendMess}>Send</button>
       </div>
       <div>
-        {mess.map((m: any) => (
-          <div key={m.id}>{m.messege} {m.id}</div>
+        {mess.map((m: any, index: any) => (
+          <div key={index}>{m.messege}</div>
         ))}
       </div>
     </>
