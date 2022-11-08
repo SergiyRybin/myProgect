@@ -7,6 +7,7 @@ import FirstLesson from "./Lesson1/components/FirstLesson/FirstLesson";
 import SecondLesson from "./Lesson2/App/SecondLesson";
 import Lesson3 from "./Lesson3/components/App/Lesson3";
 import StartPage from "./StartPage/StartPage";
+import Web from "./WEB/Web";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,6 +22,7 @@ root.render(
         <Route path="/2" element={<SecondLesson />} />
         <Route path="/3" element={<Lesson3 />} />
         <Route path="/5/*" element={<Lesson5 />} />
+        <Route path="/web" element={<Web/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
