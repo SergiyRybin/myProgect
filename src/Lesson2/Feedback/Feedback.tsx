@@ -4,7 +4,6 @@ import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
 import Section from "../SectionChildren/SectionChildren";
 import Notification from "../Notification/Notification";
 import React from "react";
-import ButtonBack from "../../StartPage/ButtonBack";
 
 type MyState = {
   good: number;

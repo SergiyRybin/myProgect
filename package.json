@@ -25,7 +25,6 @@
     "ws": "^8.11.0"
   },
   "scripts": {
-    "server": "nodemon ./src/WEB/websocket.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
