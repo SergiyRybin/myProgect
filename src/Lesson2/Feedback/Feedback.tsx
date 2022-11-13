@@ -9,24 +9,22 @@ type MyState = {
   good: number;
   neutral: number;
   bad: number;
+  [targetName: string]: number;
 };
 
-class Feedback extends Component {
-  state: MyState = {
+class Feedback extends Component<{}, MyState> {
+  state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
   addFeedback = (event: React.MouseEvent<HTMLButtonElement>) => {
-    
-    const targetName = (event.target as HTMLButtonElement).dataset.name;
+    const targetName = event.currentTarget.dataset.name?.toLowerCase();
 
-    this.setState((prev: MyState) => {
-      if (targetName === "Good") return (prev.good += 1);
-      if (targetName === "Neutral") return (prev.neutral += 1);
-      if (targetName === "Bad") return (prev.bad += 1);
-    });
+    this.setState((prev) => ({
+      [targetName as string]: prev[targetName as keyof MyState] + 1,
+    }));
   };
 
   countTotalFeedback() {
