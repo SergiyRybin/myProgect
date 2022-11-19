@@ -1,0 +1,35 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: bisque;
+  outline: 1px solid lightgray;
+}
+.status {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.friend li p {
+  margin-left: 10px;
+}
+
+.friend {
+  border-radius: 4px;
+
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+}
+.friend li {
+  margin-bottom: 15px;
+  flex-direction: row;
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
