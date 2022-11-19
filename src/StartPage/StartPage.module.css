@@ -1,6 +1,18 @@
 .Back{
-  width: 70px;
-  height: 50px;
+  width: 150px;
+  height: 150px;
+  /* background: rgba(171, 171, 171, 0.5); */
+background: linear-gradient(
+  to left top,
+  #ff2c9c,
+  #ff287b,
+  #ff395a,
+  #ff5137,
+  #ff6a00
+);
+  color: black;
+  border: 1px solid lightgray;
+  backdrop-filter: blur(4px);
 }
 
 .Lin{
