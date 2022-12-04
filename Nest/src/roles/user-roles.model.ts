@@ -28,5 +28,5 @@ export class UserRoles extends Model<UserRoles> {
   @Column({
     type: DataType.NUMBER,
   })
-  userId: string;
+  userId: number;
 }
