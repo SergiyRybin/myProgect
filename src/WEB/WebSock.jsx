@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import ButtonBack from "../StartPage/ButtonBack";
 
 const WebSock = () => {
