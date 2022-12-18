@@ -32,7 +32,7 @@
     "start:docker": "docker-compose up",
     "srop:docker": "docker stop $(docker ps -aq) && docker rm $(docker ps -aq)",
     "server": "nodemon ./src/WEB/websocket.js",
-    "front": "react-scripts start"
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [
