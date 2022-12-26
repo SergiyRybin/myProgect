@@ -24,6 +24,7 @@ export class User extends Model<User, UserCreation> {
     primaryKey: true,
   })
   id: number;
+
   @ApiProperty({ example: 'example@example.com', description: 'unice email' })
   @Column({
     type: DataType.STRING,
@@ -41,7 +42,7 @@ export class User extends Model<User, UserCreation> {
 
   @ApiProperty({ example: true, description: 'banned or not' })
   @Column({
-    type: DataType.BOOLEAN,
+    type: DataType.STRING,
     defaultValue: false,
   })
   banned: boolean;
